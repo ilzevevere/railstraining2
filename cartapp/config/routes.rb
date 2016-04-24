@@ -5,7 +5,10 @@ Rails.application.routes.draw do
   get '/cart/:id' => 'cart#add' #allows user to add to cart products
 
   resources :products
-  root 'page#home'
+  
+  resources :charges
+  
+  root 'page#home' #pages controller lets access to home method
   
   get 'page/about'
 
