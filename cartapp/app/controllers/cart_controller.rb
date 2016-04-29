@@ -11,7 +11,11 @@ before_action :authenticate_user!, except: [:index] # authenticate user before a
         session[:cart] = {}
         cart = session[:cart]
        end
+<<<<<<< HEAD
       
+=======
+    
+>>>>>>> secondaryrep/master
       #if the product has already been added to the cart, increment the value else set the value to 1
       if cart[id] then
          cart[id] = cart[id] + 1
@@ -20,6 +24,19 @@ before_action :authenticate_user!, except: [:index] # authenticate user before a
       end
     redirect_to :action => :index
   end #end add method
+<<<<<<< HEAD
+=======
+ 
+  def remove
+         @cart = Cart.find(params[:id])
+         @cart.delete
+         redirect_to :action => :index
+  end
+#def remove
+#   id = params[:id]
+#    @cart[id]=@cart[id] - 1
+#  end
+>>>>>>> secondaryrep/master
   
   def clearCart
     session[:cart] = nil

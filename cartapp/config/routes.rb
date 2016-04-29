@@ -1,20 +1,52 @@
 Rails.application.routes.draw do
+
+  get 'users/index'
+
+  get 'users/index' => 'users#show'
+
+  get 'users/show'
+
+  get 'admin/show'
+
+  root 'page#home' #pages controller lets access to home method
+  
+  resources :products
+  
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  get '/admin' => 'rails_admin/main#dashboard'
+  
   devise_for :users
   get '/cart' => 'cart#index' #renders cart controller with index action
   get '/cart/clear' => 'cart#clearCart' #when user clears cart he will be redirected to index page
   get '/cart/:id' => 'cart#add' #allows user to add to cart products
-
-  resources :products
   
+  resources :users
+  #get '/users/:id' => 'users#index'
+  get '/user/:id' => 'users#show'
+  
+  resources :admin 
+  resources :profiles
+  #get ':user_name', to: 'profiles#show', as: :profile  
+ 
+  devise_for :users
+  
+  get '/cart' => 'cart#index' #renders cart controller with index action
+  get '/cart/clear' => 'cart#clearCart' #when user clears cart he will be redirected to index page
+  get '/cart/:id' => 'cart#add' #allows user to add to cart products
+  #get '/cart/:id' => 'cart#remove'  #allows user to remove to cart products
+  #post '/add_to_cart/:product_id' => 'cart#add_to_cart', :as => 'add_to_cart'
   resources :charges
-  
-  root 'page#home' #pages controller lets access to home method
   
   get 'page/about'
 
-  get 'page/faqs'
+  #get 'page/faqs'
 
   get 'page/contact'
+
+  get 'charges/new'
+
+
+  #post 'product/:id', to: 'cart#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -4,8 +4,12 @@ gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 
 gem 'devise'
 
+gem 'rails_admin'
+
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails'
+#administration panel 
+gem 'administrate', '~> 0.2.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.2'
@@ -26,6 +30,10 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
+<<<<<<< HEAD
+=======
+gem "paperclip"
+>>>>>>> secondaryrep/master
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
